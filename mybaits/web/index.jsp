@@ -11,6 +11,6 @@
     <title>$Title$</title>
   </head>
   <body>
-你好啊,啊啊啊啊啊啊啊 啊啊
+你好啊
   </body>
 </html>
