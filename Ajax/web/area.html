@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>省市联动查询</title>
+	</head>
+	<body>
+		<script>
+			//发送Ajax请求
+			window.onload = function () {
+				    var xhr = new XMLHttpRequest();
+					xhr.onreadystatechange = function() {
+						var htmls = "";
+						if (xhr.readyState === 4) {
+							if (xhr.status = 200) {
+								var json = JSON.parse(this.responseText);
+								htmls+="<option value=''>--请选择省份--</option>";
+								for (var i = 0; i < json.length; i++) {
+									htmls+="<option value="+json[i].cid+">"+json[i].city+"</option>";
+									document.getElementById("pro").innerHTML=htmls;
+								}
+							}
+						}
+					}
+					xhr.open("GET","/Ajax/Sarea",true);
+					xhr.send();
+					document.getElementById("pro").onchange = function () {
+						var value = document.getElementById("pro").value;
+						var xhr = new XMLHttpRequest();
+						var htmls = "";
+						xhr.onreadystatechange = function() {
+							if (xhr.readyState === 4) {
+								if (xhr.status = 200) {
+									var json = JSON.parse(this.responseText);
+									htmls+="<option value=''>--请选择城市--</option>";
+									for (var i = 0; i < json.length; i++) {
+										htmls+="<option value="+json[i].cid+">"+json[i].city+"</option>";
+										document.getElementById("city").innerHTML=htmls;
+									}
+								}
+							}
+						}
+						xhr.open("GET","/Ajax/Sarea?pid="+value,true);
+						xhr.send();
+					}
+			}
+		</script>
+		<select id="pro">
+<!--			<option value="" id="test"> </option>-->
+<!--			<option value="001">湖南</option>-->
+<!--			<option value="002">广州</option>-->
+		</select>
+		<select id="city">
+<!--			<option value="">&#45;&#45;请选择城市&#45;&#45;</option>-->
+<!--			<option value="001">长沙</option>-->
+<!--			<option value="002">邵阳</option>-->
+<!--		</select>-->
+	</body>
+</html>

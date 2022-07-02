@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+	</head>
+	<script>
+		$().ready(function (){
+			$("#test").click(function () {
+				var s = $("#test2").get(0);
+				alert(s.value)
+				console.log($("#test2")[0].value)
+			})
+			$("#test1").hover(function () {
+				$("#test1").val("厉害啊")
+			})
+		})
+	</script>
+	<body>
+		<input id="test" type="button" value="nihao">
+		<input id="test1" type="button" value="牛">
+		<input id="test2" type="text" >
+	</body>
+</html>

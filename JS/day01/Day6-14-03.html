@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>获取当前的时间</title>
+	</head>
+	<body>
+		<script>
+			// document.write(date.getTime());
+			window.onload = function (){
+				start = window.document.getElementById("start");
+				o  = function () {
+					var date = new Date();
+					var string = date.toLocaleString();
+					window.document.getElementById("time").innerText=string;
+				}
+				start.onclick = function () {
+					s = setInterval(o,1000)
+				}
+				var close = window.document.getElementById("close");
+				close.onclick = function () {
+					clearInterval(s)
+				}
+			}
+		</script>
+		<span id="start">显示系统时间</span><br>
+		<span id="time"></span><br>
+		<span id="close">关闭系统时间</span>
+	</body>
+</html>

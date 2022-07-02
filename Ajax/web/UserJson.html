@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>测试使用json发送数据</title>
+	</head>
+	<body>
+		<script>
+			window.onload = function () {
+				document.getElementById("start").onclick = function (){
+					var xhr = new XMLHttpRequest();
+					xhr.onreadystatechange = function() {
+						if (xhr.readyState === 4) {
+							if (xhr.status === 200) {
+								var html = "";
+								var responseText = JSON.parse(xhr.responseText);
+								for (var i = 0; i < responseText.length; i++) {
+									var username = responseText[i].username;
+									var sex = responseText[i].sex;
+									var age = responseText[i].age;
+									html+="<tr>"
+									html+="<td>"+username+"</td>";
+									html+="<td>"+sex+"</td>";
+									html+="<td>"+age+"</td>";
+									html+="</tr>"
+									window.document.getElementById("body").innerHTML = html;
+								}
+							}
+						}
+					}
+					xhr.open("GET","Test03",true)
+					xhr.send();
+				}
+				document.getElementById("over").onclick = function() {
+					window.document.getElementById("body").innerHTML = "";
+				}
+			}
+		</script>
+		<input type="button" id="start" value="展示所有的信息" >
+		<input type="button" id="over" value="收起" >
+		<table width="50%" border="3px" align="center">
+			<thead>
+				<tr>
+					<td>名字</td>
+					<td>性别</td>
+					<td>年龄</td>
+				</tr>
+			</thead>
+			<tbody id="body">
+			</tbody>
+		</table>
+	</body>
+</html>

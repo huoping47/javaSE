@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+	<servlet>
+		<servlet-name>UserList</servlet-name>
+		<servlet-class>User.UserList1</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserList</servlet-name>
+		<url-pattern>/UserList/AllUser</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Details</servlet-name>
+		<servlet-class>User.Details</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Details</servlet-name>
+		<url-pattern>/Details/one</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Update</servlet-name>
+		<servlet-class>User.Update</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Update</servlet-name>
+		<url-pattern>/Update</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Updates</servlet-name>
+		<servlet-class>User.Updates</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Updates</servlet-name>
+		<url-pattern>/Updates</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>Delete</servlet-name>
+		<servlet-class>User.Delete</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Delete</servlet-name>
+		<url-pattern>/Delete</url-pattern>
+	</servlet-mapping>
+</web-app>

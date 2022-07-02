@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>获取下拉框中的value的值</title>
+	</head>
+	<body>
+		<script>
+			window.onload=function () {
+				var value = window.document.getElementById("city")
+				value.onchange = function () {
+					alert(value.value);
+				}
+			}
+		</script>
+		<select id="city">
+			<option value="" >常见省份</option>
+			<option value="001">广州</option>
+			<option value="002">江西</option>
+			<option value="003">上海</option>
+			<option value="004">湖南</option>
+		</select>
+	</body>
+</html>

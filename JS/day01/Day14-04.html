@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>json函数</title>
+	</head>
+	<script>
+		var s = {
+			'no':21,
+			'name':"张三",
+			'sex':'男'
+		};
+		// var exect = {"name":"李四"};
+		// console.log(s.no+s.name+s.sex)
+		// console.log(exect.name)
+		var value = "{\"username\":\"张三\",\"password\":\"123456\"}";
+		eval("valus = "+value);
+		console.log(valus.username+","+valus.password)
+		//eval函数,可以将所有的代码转换成js代码执行，最常用的就是把json的字符串转换成js中的json对象
+	</script>
+	<body>
+
+	</body>
+</html>

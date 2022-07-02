@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>获取表单的值</title>
+<!--	表单验证
+		用户名不能为空
+		用户名必须在6-14为之间
+		用户名只能由数字字母组成，不能含有其他的符号
+		密码和确认密码一致，邮箱地址合法
+		统一失去焦点验证
+		错误提示信息同意在span标签中提示，并且要求字体12，红色
+		文本框再次获得焦点后，清空错误提示信息，如果文本框中数据不合法要求清空文本框的value
+		最终表单中所有项均合法可提交
+-->
+		<script>
+			window.onload = function (){
+				window.document.getElementById("sub").onclick=function (){
+					//用户名注册验证开始
+					var user = window.document.getElementById("user").value;
+					user = user.trim();
+					var regsp = /^[a-zA-Z0-9]{6,13}$/;
+					var result = regsp.test(user)
+					if (!result) {
+						window.document.getElementById("mess").innerHTML = "<span style='font-size: 12px;color: red'>请输入字母以及数字，6-14位</span>";
+						window.document.getElementById("user").onfocus = function() {
+							window.document.getElementById("mess").innerHTML = "";
+						}
+						return;
+					}
+					//用户名注册验证结束
+					//用户密码验证开始
+					var psd = window.document.getElementById("pswd").value;
+					var psdReg = /^[a-zA-Z0-9]{6,13}[@._]*$/;
+					var resu = psdReg.test(psd);
+					if (!resu){
+						window.document.getElementById("messPsd").innerHTML = "<span style='font-size: 12px;color: red'>请输入字母以及数字，6-14位</span>";
+							window.document.getElementById("pswd").onfocus = function() {
+								window.document.getElementById("messPsd").innerHTML = "";
+								window.document.getElementById("pswd").value="";
+							}
+							return;
+					}
+					//用户密码验证结束
+					var psds = window.document.getElementById("nextPswd").value;
+					if (psds !== psd){
+						window.document.getElementById("messPswd").innerHTML = "<span style='font-size: 12px;color: red'>您的密码不一致</span>";
+						window.document.getElementById("nextPswd").onfocus = function() {
+							window.document.getElementById("messPswd").innerHTML = "";
+							window.document.getElementById("nextPswd").value="";
+						}
+						return;
+					}
+					window.document.getElementById("sub").type="submit";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form action="http://www.baidu.com" method="get" >
+			请输入用户名：<input type="text" name="user" id="user" value="asd456"><span id="mess"></span>
+			<br>
+			请输入密码：&nbsp;&nbsp;&nbsp;<input type="password" name="pwd" id="pswd" value=""><span id="messPsd"></span><br>
+			请确认密码：&nbsp;&nbsp;&nbsp;<input type="password" name="pwd" id="nextPswd" value=""><span id="messPswd"></span><br><br>
+			<input type="button"  style="position: absolute;left: 150px;top:100px;background-color: lavenderblush;border: 1px;"   value="登录" id="sub">
+		</form>
+	</body>
+</html>

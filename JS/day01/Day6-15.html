@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>获取复选框的值</title>
+	</head>
+	<body>
+		<script>
+			window.onload = function () {
+				var all = window.document.getElementById("allCheck");
+				var aihao = window.document.getElementsByName("爱好");
+				all.onclick = function() {
+					if (all.checked){
+						for (var i = 0; i < aihao.length;i++) {
+							aihao[i].checked = true;
+						}
+					}else{
+						for (var i = 0; i < aihao.length;i++) {
+							aihao[i].checked = false;
+						}
+					}
+				}
+				for (var i = 0; i < aihao.length; i++) {
+					aihao[i].onclick = function() {
+						var lenth = 0;
+						for (var j = 0; j < aihao.length; j++){
+							if (aihao[j].checked){
+								lenth++;
+							}
+						}
+						all.checked=(lenth === aihao.length);
+					}
+				}
+			}
+		</script>
+			<input type="checkbox" id="allCheck"><br>
+			<input type="checkbox" name="爱好">抽烟<br>
+			<input type="checkbox" name="爱好">喝酒<br>
+			<input type="checkbox" name="爱好">烫头<br>
+	</body>
+</html>

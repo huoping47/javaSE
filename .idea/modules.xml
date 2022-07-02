@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Ajax/Ajax.iml" filepath="$PROJECT_DIR$/Ajax/Ajax.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Item/Item.iml" filepath="$PROJECT_DIR$/Item/Item.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/JAVASE.iml" filepath="$PROJECT_DIR$/.idea/JAVASE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JQuery/JQuery.iml" filepath="$PROJECT_DIR$/JQuery/JQuery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JSP/JSP.iml" filepath="$PROJECT_DIR$/JSP/JSP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavaClass/JavaClass.iml" filepath="$PROJECT_DIR$/JavaClass/JavaClass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MySql/MySql.iml" filepath="$PROJECT_DIR$/MySql/MySql.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ServeleClass/ServeleClass.iml" filepath="$PROJECT_DIR$/ServeleClass/ServeleClass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/User/User.iml" filepath="$PROJECT_DIR$/User/User.iml" />
+      <module fileurl="file://$PROJECT_DIR$/User02/User02.iml" filepath="$PROJECT_DIR$/User02/User02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybaits/mybaits.iml" filepath="$PROJECT_DIR$/mybaits/mybaits.iml" />
+    </modules>
+  </component>
+</project>
