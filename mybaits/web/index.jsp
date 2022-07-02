@@ -11,6 +11,6 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$你好啊,mybaits,我马上就要开始学习你了
+你好啊
   </body>
 </html>
