@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="tomcat10">
+  <library name="tomcat">
     <CLASSES>
       <root url="file://$PROJECT_DIR$/../../JAVAALL/Tomcat/apache-tomcat-10.0.12/apache-tomcat-10.0.12/lib" />
     </CLASSES>
