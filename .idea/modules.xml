@@ -11,6 +11,8 @@
       <module fileurl="file://$PROJECT_DIR$/User/User.iml" filepath="$PROJECT_DIR$/User/User.iml" />
       <module fileurl="file://$PROJECT_DIR$/User02/User02.iml" filepath="$PROJECT_DIR$/User02/User02.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/javaSE.iml" filepath="$PROJECT_DIR$/.idea/javaSE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/User02/test/test.iml" filepath="$PROJECT_DIR$/User02/test/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test1/test1.iml" filepath="$PROJECT_DIR$/test1/test1.iml" />
     </modules>
   </component>
 </project>
