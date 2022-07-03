@@ -11,6 +11,6 @@
     <title>$Title$</title>
   </head>
   <body>
-你好啊   hello Word , myfistr mybatis
+你好啊
   </body>
 </html>
