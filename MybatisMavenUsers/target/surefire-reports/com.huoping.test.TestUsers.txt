@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.huoping.test.TestUsers
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.455 sec <<< FAILURE!
+testUsers(com.huoping.test.TestUsers)  Time elapsed: 0.006 sec  <<< FAILURE!
+java.lang.NullPointerException
+	at com.huoping.test.TestUsers.testUsers(TestUsers.java:38)
+

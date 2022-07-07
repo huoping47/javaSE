@@ -3,7 +3,17 @@
 <configuration>
     <!--    读取属性文件  resources:默认从resources下面开始找,加载文件  url:使用绝对路径加载文件-->
     <properties resource="jdbc.properties"></properties>
-
+    <!--    设置日志输出底层代码-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <!--    注册实体类的别名-->
+    <typeAliases>
+        <!--        注册单个实体类的别名 只要有使用下面这个type类型的地方,都可以使用user这个别名-->
+        <!--        <typeAlias type="org.example.UserTest" alias="user"></typeAlias>-->
+        <!--        批量注册实体类的别名-->
+        <package name="org.example"/>
+    </typeAliases>
     <environments default="home">
         <!--        可以有多个 default默认使用哪个-->
         <!--        id的属性就是提供给environments标签的default使用-->

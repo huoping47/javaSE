@@ -4,6 +4,8 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -16,6 +18,17 @@ import java.util.List;
  *2022/7/6 06 19:00
  */
 public class TestUser {
+    @Before
+    public void before() {
+//        这是在执行Test之前执行的
+//        可以将重复的代码丢在这里面, 每次执行都会先执行这里面的代码
+    }
+
+    @After
+    public void after() {
+//        这是Test程序执行完之后执行的, 也可以将重复的代码丢在这里面, 比如关闭资源啊等等......
+    }
+
     /**
      * 查询所有的学生
      *
@@ -35,6 +48,7 @@ public class TestUser {
         //关闭资源
         sql.close();
     }
+    //数据库已经删除
 
     /**
      * 根据ID查询学生

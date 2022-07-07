@@ -14,6 +14,12 @@ import java.lang.reflect.Proxy;
 
 //public class action implements Show {
 public class action {
+
+    @before
+    public void before() {
+        
+    }
+
     public Show show;
 
     /**
