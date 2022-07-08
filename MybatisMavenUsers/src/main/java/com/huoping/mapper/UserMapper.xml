@@ -1,8 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.huoping.mapper.UserMapper">
+    <!--    动态sql:用来定义代码片段,可以将所有的列名,或复杂的条件定义为代码片段,-->
+    <sql id="selectAll">
+        username
+        , birthday, sex, address
+    </sql>
     <select id="getAll" resultType="users">
-        select username, birthday, sex, address
+        -- select username, birthday, sex, address
+        -- from users
+        select
+        <include refid="selectAll"></include>
         from users
     </select>
+
+    <!--        List<Users> getCondition(Users users); 根据不同的条件查询不同的数据-->
+    <select id="getCondition" resultType="users" parameterType="users">
+        select
+        <include refid="selectAll"></include>
+        from users
+        <where>
+            <if test="username != null and username != '' ">
+                and username like concat('%',#{username},'%')
+            </if>
+            <if test="birthday !=null">
+                and birthday = #{birthday}
+            </if>
+            <if test="sex !=null and sex != ''">
+                and sex = #{sex}
+            </if>
+            <if test="address !=null and address != ''">
+                and address like concat('%',#{address},'%')
+            </if>
+        </where>
+    </select>
+    <!--      private Integer id;
+    private String username;
+    private Date birthday;
+    private String sex;
+    private String address;-->
+    <update id="update" parameterType="users">
+        update users
+        set username=#{username},
+        birthday=#{birthday},
+        sex=#{sex},
+        address=#{address}
+        where id = #{id}
+    </update>
+    <!--    返回自增主键-->
+    <insert id="insert" parameterType="users">
+        <selectKey keyProperty="id" resultType="int" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        insert into users(username,birthday,sex,address)
+        values
+        (#{username}, #{birthday}, #{sex}, #{address})
+    </insert>
+
+    <select id="getId" parameterType="int" resultType="users">
+        select id, username,birthday, sex, address
+        from users
+        where id = #{id}
+    </select>
+
+    <!--
+         模糊查询
+        List<Users> getName(String name);-->
+    <!--    <select id="getName" parameterType="string" resultType="users">-->
+    <!--        select id, username, birthday, sex, address-->
+    <!--        from users-->
+    <!--        where username like '%${name}%'-->
+    <!--    </select>-->
+    <!--    防止sql注入的模糊查询-->
+    <select id="getName" parameterType="string" resultType="users">
+        select id, username, birthday, sex, address
+        from users
+        where username like concat('%',#{name},'%')
+    </select>
+
+    <!--
+    List<Users> getByVague(@Param("vague") String vague, @Param("vagueValue") String vagueValue);
+    如果参数超过一个,则可以省略parameterType这个属性
+    -->
+    <select id="getByVague" resultType="users">
+        select *
+        from users
+        where ${vague} like concat('%', #{vagueValue},'%')
+    </select>
+
+    <delete id="delete" parameterType="int">
+        delete
+        from users
+        where id = #{id}
+    </delete>
 </mapper>

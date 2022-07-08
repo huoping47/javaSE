@@ -25,6 +25,8 @@
         </environment>
     </environments>
     <mappers>
-        <mapper class="com.huoping.mapper.UserMapper"></mapper>
+        <!--        <mapper class="com.huoping.mapper.UserMapper"></mapper>-->
+        <!--        批量注册mapper.xml文件 下面的写法是将mapper文件下的所有mapper.xml文件注册-->
+        <package name="com.huoping.mapper"/>
     </mappers>
 </configuration>

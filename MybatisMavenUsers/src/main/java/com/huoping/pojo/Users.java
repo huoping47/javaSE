@@ -1,6 +1,6 @@
 package com.huoping.pojo;
 
-import java.sql.Date;
+import java.util.Date;
 
 /*
  *com.huoping.pojo
