@@ -47,6 +47,26 @@
         address=#{address}
         where id = #{id}
     </update>
+    <!--        int updateSet(Users users);-->
+    <update id="updateSet" parameterType="users">
+        update users
+        <set>
+            <if test="username!=null and username!= ''">
+                username=#{username},
+            </if>
+            <if test="birthday!=null">
+                birthday = #{birthday},
+            </if>
+            <if test="sex!=null and sex!=''">
+                sex = #{sex}
+            </if>
+            <if test="address!=null and address!=''">
+                address = #{address}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
     <!--    返回自增主键-->
     <insert id="insert" parameterType="users">
         <selectKey keyProperty="id" resultType="int" order="AFTER">
@@ -55,6 +75,15 @@
         insert into users(username,birthday,sex,address)
         values
         (#{username}, #{birthday}, #{sex}, #{address})
+    </insert>
+
+    <!--    int insertUser(List<Users> list);-->
+    <insert id="insertUser">
+        insert into users(username, birthday, sex, address)
+        values
+        <foreach collection="list" item="lists" separator=",">
+            (#{lists.username},#{lists.birthday},#{lists.sex},#{lists.address})
+        </foreach>
     </insert>
 
     <select id="getId" parameterType="int" resultType="users">
@@ -78,6 +107,17 @@
         where username like concat('%',#{name},'%')
     </select>
 
+    <!--        List<Users> getByIds(Array arr[])-->
+    <select id="getByIds" resultType="users">
+        select
+        <include refid="selectAll"></include>
+        from users where id in(
+        <foreach collection="array" item="id" separator=",">
+            #{id}
+        </foreach>
+        )
+    </select>
+
     <!--
     List<Users> getByVague(@Param("vague") String vague, @Param("vagueValue") String vagueValue);
     如果参数超过一个,则可以省略parameterType这个属性
@@ -92,5 +132,16 @@
         delete
         from users
         where id = #{id}
+    </delete>
+
+    <!--        int deleteById(Integer del[]);-->
+    <delete id="deleteById">
+        delete
+        from users
+        where id in (
+        <foreach collection="array" separator="," item="id">
+            #{id}
+        </foreach>
+        )
     </delete>
 </mapper>

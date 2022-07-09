@@ -74,4 +74,36 @@ public interface UserMapper {
      * 根据不同条件查询数据
      */
     List<Users> getCondition(Users users);
+
+    /**
+     * 更新某一列数据
+     *
+     * @param users
+     * @return
+     */
+    int updateSet(Users users);
+
+    /**
+     * 根据多个ID查询多个数据
+     *
+     * @param arr
+     * @return
+     */
+    List<Users> getByIds(Integer arr[]);
+
+    /**
+     * 根据ID批量删除
+     *
+     * @param del
+     * @return
+     */
+    int deleteById(Integer del[]);
+
+    /**
+     * 批量新曾数据
+     *
+     * @param list
+     * @return
+     */
+    int insertUser(List<Users> list);
 }

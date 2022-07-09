@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -71,6 +72,7 @@ public class TestUsers {
      *
      * @throws ParseException
      */
+
     @Test
     public void testInsert() throws ParseException {
         Users users = new Users("小绿", sdf.parse("2020-6-1"), "2", "广州");
@@ -138,4 +140,52 @@ public class TestUsers {
         users.setUsername("张");
         List<Users> list = userMapper.getCondition(users);
     }
+
+    @Test
+    public void testUpdateSet() {
+        Users users = new Users();
+        users.setId(52);
+        users.setAddress("长沙");
+        userMapper.updateSet(users);
+        sqlSession.commit();
+    }
+
+    /**
+     * 根据ID多个查询
+     */
+    @Test
+    public void TestGetById() {
+        Integer arr[] = {1, 5};
+        List<Users> list = userMapper.getByIds(arr);
+        list.forEach(lists -> System.out.println(lists));
+    }
+
+    /**
+     * 根据ID批量删除数据
+     */
+    @Test
+    public void TestDeleteById() {
+        Integer arr[] = {9, 52};
+        userMapper.deleteById(arr);
+        sqlSession.commit();
+    }
+
+    /**
+     * 批量新增数据
+     *
+     * @throws ParseException
+     */
+    @Test
+    public void testInsertList() throws ParseException {
+        List<Users> list = new ArrayList<>();
+        Users users1 = new Users("小一", sdf.parse("2001-4-1"), "2", "邵阳");
+        Users users2 = new Users("小二", sdf.parse("2002-4-1"), "2", "邵阳");
+        Users users3 = new Users("小三", sdf.parse("2003-4-1"), "1", "邵阳");
+        list.add(users1);
+        list.add(users2);
+        list.add(users3);
+        userMapper.insertUser(list);
+        sqlSession.commit();
+    }
+
 }
