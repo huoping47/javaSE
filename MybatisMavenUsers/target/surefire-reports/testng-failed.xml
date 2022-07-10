@@ -5,7 +5,9 @@
     <classes>
       <class name="com.huoping.test.TestUsers">
         <methods>
-          <include name="testUsers"/>
+          <include name="openSqlSession"/>
+          <include name="closeSqlSession"/>
+          <include name="testInsert"/>
         </methods>
       </class> <!-- com.huoping.test.TestUsers -->
     </classes>

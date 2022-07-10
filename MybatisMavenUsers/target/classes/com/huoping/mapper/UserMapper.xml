@@ -6,7 +6,7 @@
         username
         , birthday, sex, address
     </sql>
-    <select id="getAll" resultType="users">
+    <select id="getAll" resultType="Users">
         -- select username, birthday, sex, address
         -- from users
         select
@@ -15,7 +15,7 @@
     </select>
 
     <!--        List<Users> getCondition(Users users); 根据不同的条件查询不同的数据-->
-    <select id="getCondition" resultType="users" parameterType="users">
+    <select id="getCondition" resultType="Users" parameterType="Users">
         select
         <include refid="selectAll"></include>
         from users
@@ -39,16 +39,16 @@
     private Date birthday;
     private String sex;
     private String address;-->
-    <update id="update" parameterType="users">
+    <update id="update" parameterType="Users">
         update users
         set username=#{username},
-        birthday=#{birthday},
-        sex=#{sex},
-        address=#{address}
+            birthday=#{birthday},
+            sex=#{sex},
+            address=#{address}
         where id = #{id}
     </update>
     <!--        int updateSet(Users users);-->
-    <update id="updateSet" parameterType="users">
+    <update id="updateSet" parameterType="Users">
         update users
         <set>
             <if test="username!=null and username!= ''">
@@ -68,7 +68,7 @@
     </update>
 
     <!--    返回自增主键-->
-    <insert id="insert" parameterType="users">
+    <insert id="insert" parameterType="Users">
         <selectKey keyProperty="id" resultType="int" order="AFTER">
             select last_insert_id()
         </selectKey>
@@ -86,8 +86,8 @@
         </foreach>
     </insert>
 
-    <select id="getId" parameterType="int" resultType="users">
-        select id, username,birthday, sex, address
+    <select id="getId" parameterType="int" resultType="Users">
+        select id, username, birthday, sex, address
         from users
         where id = #{id}
     </select>
@@ -101,14 +101,14 @@
     <!--        where username like '%${name}%'-->
     <!--    </select>-->
     <!--    防止sql注入的模糊查询-->
-    <select id="getName" parameterType="string" resultType="users">
+    <select id="getName" parameterType="string" resultType="Users">
         select id, username, birthday, sex, address
         from users
-        where username like concat('%',#{name},'%')
+        where username like concat('%', #{name}, '%')
     </select>
 
     <!--        List<Users> getByIds(Array arr[])-->
-    <select id="getByIds" resultType="users">
+    <select id="getByIds" resultType="Users">
         select
         <include refid="selectAll"></include>
         from users where id in(
@@ -122,10 +122,39 @@
     List<Users> getByVague(@Param("vague") String vague, @Param("vagueValue") String vagueValue);
     如果参数超过一个,则可以省略parameterType这个属性
     -->
-    <select id="getByVague" resultType="users">
+    <select id="getByVague" resultType="Users">
         select *
         from users
-        where ${vague} like concat('%', #{vagueValue},'%')
+        where ${vague} like concat('%', #{vagueValue}, '%')
+    </select>
+
+    <!--        List<Users> getUsersDate(Date date);-->
+    <select id="getUsersDate" resultType="Users">
+        select
+        <include refid="selectAll"></include>
+        from users where birthday between #{arg0} and #{arg1}
+    </select>
+
+    <!--    List<Users> getUserMap(Map map);
+                #{birthdayBegin} :相当于是map中的key
+    -->
+    <select id="getUserMap" resultType="Users">
+        select
+        <include refid="selectAll"></include>
+        from users where birthday between #{birthdayBegin} and #{birthdayEnd}
+    </select>
+
+    <!--    Map getUserByMap(Integer map);-->
+    <select id="getUserByMap" resultType="map" parameterType="int">
+        select username, address
+        from users
+        where id = #{id}
+    </select>
+
+    <!--    List<Map> getAllMap();-->
+    <select id="getAllMap" resultType="map">
+        select username, address
+        from users
     </select>
 
     <delete id="delete" parameterType="int">

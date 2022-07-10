@@ -14,9 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /*
  *com.huoping.test
@@ -165,7 +163,7 @@ public class TestUsers {
      */
     @Test
     public void TestDeleteById() {
-        Integer arr[] = {9, 52};
+        Integer arr[] = {60, 61, 62};
         userMapper.deleteById(arr);
         sqlSession.commit();
     }
@@ -188,4 +186,49 @@ public class TestUsers {
         sqlSession.commit();
     }
 
+    /**
+     * 查询两个日期之间的数据
+     *
+     * @throws ParseException
+     */
+    @Test
+    public void getUserDate() throws ParseException {
+        List<Users> list = userMapper.getUsersDate(sdf.parse("2001-1-1"), sdf.parse("2001-12-1"));
+        list.forEach(lists -> System.out.println(lists));
+    }
+
+
+    /**
+     * 根据map集合中的value取出数据
+     *
+     * @throws ParseException
+     */
+    @Test
+    public void testGetByMap() throws ParseException {
+        Map map = new HashMap();
+        map.put("birthdayBegin", sdf.parse("2000-1-1"));
+        map.put("birthdayEnd", sdf.parse("2001-12-31"));
+        List<Users> list = userMapper.getUserMap(map);
+        list.forEach(lists -> System.out.println(lists));
+    }
+
+    /**
+     * 返回值是一个map
+     */
+    @Test
+    public void TestGetByUserMap() {
+        Map map = userMapper.getUserByMap(3);
+        System.out.println(map);
+        System.out.println(map.get("username"));
+    }
+
+    /**
+     * 返回多行map
+     */
+    @Test
+    public void getAllMap() {
+        List<Map> list = userMapper.getAllMap();
+        System.out.println(list);
+        list.forEach(lists -> System.out.println(lists.get("username") + "===" + lists.get("address")));
+    }
 }

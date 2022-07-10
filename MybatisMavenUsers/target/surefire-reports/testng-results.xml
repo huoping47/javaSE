@@ -1,17 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="17" passed="16" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-07-07T22:01:26 CST" name="com.huoping.test.TestUsers" finished-at="2022-07-07T22:01:26 CST" duration-ms="28">
+  <suite started-at="2022-07-10T15:00:45 CST" name="com.huoping.test.TestUsers" finished-at="2022-07-10T15:00:46 CST" duration-ms="537">
     <groups>
     </groups>
-    <test started-at="2022-07-07T22:01:26 CST" name="Command line test" finished-at="2022-07-07T22:01:26 CST" duration-ms="28">
+    <test started-at="2022-07-10T15:00:45 CST" name="Command line test" finished-at="2022-07-10T15:00:46 CST" duration-ms="537">
       <class name="com.huoping.test.TestUsers">
-        <test-method signature="testUsers()[pri:0, instance:com.huoping.test.TestUsers@dd05255]" started-at="2022-07-07T22:01:26 CST" name="testUsers" finished-at="2022-07-07T22:01:26 CST" duration-ms="3" status="FAIL">
-          <exception class="java.lang.NullPointerException">
+        <test-method is-config="true" signature="openSqlSession()[pri:0, instance:com.huoping.test.TestUsers@2d2ffcb7]" started-at="2022-07-10T15:00:45 CST" name="openSqlSession" finished-at="2022-07-10T15:00:45 CST" duration-ms="178" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openSqlSession -->
+        <test-method signature="TestDeleteById()[pri:0, instance:com.huoping.test.TestUsers@2d2ffcb7]" started-at="2022-07-10T15:00:45 CST" name="TestDeleteById" finished-at="2022-07-10T15:00:45 CST" duration-ms="244" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestDeleteById -->
+        <test-method signature="TestGetById()[pri:0, instance:com.huoping.test.TestUsers@2d2ffcb7]" started-at="2022-07-10T15:00:45 CST" name="TestGetById" finished-at="2022-07-10T15:00:45 CST" duration-ms="24" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestGetById -->
+        <test-method signature="TestGetByUserMap()[pri:0, instance:com.huoping.test.TestUsers@2d2ffcb7]" started-at="2022-07-10T15:00:45 CST" name="TestGetByUserMap" finished-at="2022-07-10T15:00:45 CST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TestGetByUserMap -->
+        <test-method signature="createUUID()[pri:0, instance:com.huoping.test.TestUsers@2d2ffcb7]" started-at="2022-07-10T15:00:45 CST" name="createUUID" finished-at="2022-07-10T15:00:45 CST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createUUID -->
+        <test-method signature="getAllMap()[pri:0, instance:com.huoping.test.TestUsers@2d2ffcb7]" started-at="2022-07-10T15:00:45 CST" name="getAllMap" finished-at="2022-07-10T15:00:45 CST" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAllMap -->
+        <test-method signature="getByName()[pri:0, instance:com.huoping.test.TestUsers@2d2ffcb7]" started-at="2022-07-10T15:00:45 CST" name="getByName" finished-at="2022-07-10T15:00:45 CST" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getByName -->
+        <test-method signature="getId()[pri:0, instance:com.huoping.test.TestUsers@2d2ffcb7]" started-at="2022-07-10T15:00:45 CST" name="getId" finished-at="2022-07-10T15:00:45 CST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getId -->
+        <test-method signature="getUserDate()[pri:0, instance:com.huoping.test.TestUsers@2d2ffcb7]" started-at="2022-07-10T15:00:45 CST" name="getUserDate" finished-at="2022-07-10T15:00:45 CST" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserDate -->
+        <test-method signature="testDelete()[pri:0, instance:com.huoping.test.TestUsers@2d2ffcb7]" started-at="2022-07-10T15:00:45 CST" name="testDelete" finished-at="2022-07-10T15:00:45 CST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDelete -->
+        <test-method signature="testGetByMap()[pri:0, instance:com.huoping.test.TestUsers@2d2ffcb7]" started-at="2022-07-10T15:00:45 CST" name="testGetByMap" finished-at="2022-07-10T15:00:45 CST" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetByMap -->
+        <test-method signature="testInsert()[pri:0, instance:com.huoping.test.TestUsers@2d2ffcb7]" started-at="2022-07-10T15:00:45 CST" name="testInsert" finished-at="2022-07-10T15:00:45 CST" duration-ms="8" status="FAIL">
+          <exception class="org.apache.ibatis.exceptions.PersistenceException">
+            <message>
+              <![CDATA[
+### Error updating database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'insert
+        into users(username, birthday, sex, address)
+        values
+     ' at line 2
+### The error may exist in com/huoping/mapper/UserMapper.xml
+### The error may involve com.huoping.mapper.UserMapper.insert-Inline
+### The error occurred while setting parameters
+### SQL: select last_insert_id()             insert         into users(username, birthday, sex, address)         values             (?, ?, ?, ?)
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'insert
+        into users(username, birthday, sex, address)
+        values
+     ' at line 2]]>
+            </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-at com.huoping.test.TestUsers.testUsers(TestUsers.java:38)
+              <![CDATA[org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'insert
+        into users(username, birthday, sex, address)
+        values
+     ' at line 2
+### The error may exist in com/huoping/mapper/UserMapper.xml
+### The error may involve com.huoping.mapper.UserMapper.insert-Inline
+### The error occurred while setting parameters
+### SQL: select last_insert_id()             insert         into users(username, birthday, sex, address)         values             (?, ?, ?, ?)
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'insert
+        into users(username, birthday, sex, address)
+        values
+     ' at line 2
+at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
+at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:199)
+at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:152)
+at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:85)
+at com.sun.proxy.$Proxy8.insert(Unknown Source)
+at com.huoping.test.TestUsers.testInsert(TestUsers.java:77)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -49,12 +127,62 @@ at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(Provide
 at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'insert
+        into users(username, birthday, sex, address)
+        values
+     ' at line 2
+at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:955)
+at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:372)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+at com.sun.proxy.$Proxy10.execute(Unknown Source)
+at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+... 43 more
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- org.apache.ibatis.exceptions.PersistenceException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInsert -->
+        <test-method signature="testInsertList()[pri:0, instance:com.huoping.test.TestUsers@2d2ffcb7]" started-at="2022-07-10T15:00:45 CST" name="testInsertList" finished-at="2022-07-10T15:00:46 CST" duration-ms="9" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testInsertList -->
+        <test-method signature="testSelect()[pri:0, instance:com.huoping.test.TestUsers@2d2ffcb7]" started-at="2022-07-10T15:00:46 CST" name="testSelect" finished-at="2022-07-10T15:00:46 CST" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testSelect -->
+        <test-method signature="testUpdate()[pri:0, instance:com.huoping.test.TestUsers@2d2ffcb7]" started-at="2022-07-10T15:00:46 CST" name="testUpdate" finished-at="2022-07-10T15:00:46 CST" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUpdate -->
+        <test-method signature="testUpdateSet()[pri:0, instance:com.huoping.test.TestUsers@2d2ffcb7]" started-at="2022-07-10T15:00:46 CST" name="testUpdateSet" finished-at="2022-07-10T15:00:46 CST" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUpdateSet -->
+        <test-method signature="testUsers()[pri:0, instance:com.huoping.test.TestUsers@2d2ffcb7]" started-at="2022-07-10T15:00:46 CST" name="testUsers" finished-at="2022-07-10T15:00:46 CST" duration-ms="5" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testUsers -->
+        <test-method signature="testgetCondition()[pri:0, instance:com.huoping.test.TestUsers@2d2ffcb7]" started-at="2022-07-10T15:00:46 CST" name="testgetCondition" finished-at="2022-07-10T15:00:46 CST" duration-ms="4" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testgetCondition -->
+        <test-method is-config="true" signature="closeSqlSession()[pri:0, instance:com.huoping.test.TestUsers@2d2ffcb7]" started-at="2022-07-10T15:00:46 CST" name="closeSqlSession" finished-at="2022-07-10T15:00:46 CST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeSqlSession -->
       </class> <!-- com.huoping.test.TestUsers -->
     </test> <!-- Command line test -->
   </suite> <!-- com.huoping.test.TestUsers -->

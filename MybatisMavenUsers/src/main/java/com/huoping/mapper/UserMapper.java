@@ -9,7 +9,9 @@ package com.huoping.mapper;
 import com.huoping.pojo.Users;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 数据访问层的接口,规定数据库中可进行的各种操作
@@ -106,4 +108,36 @@ public interface UserMapper {
      * @return
      */
     int insertUser(List<Users> list);
+
+    /**
+     * 查询两个日期之间的数据
+     *
+     * @param begin 开始日期
+     * @param end   结束日期
+     * @return
+     */
+    List<Users> getUsersDate(Date begin, Date end);
+
+    /**
+     * 根据map查询两个日期之间的数据
+     *
+     * @param map
+     * @return
+     */
+    List<Users> getUserMap(Map map);
+
+    /**
+     * 返回值是一个map
+     *
+     * @param map
+     * @return
+     */
+    Map getUserByMap(Integer map);
+
+    /**
+     * 返回多行map数据
+     *
+     * @return
+     */
+    List<Map> getAllMap();
 }

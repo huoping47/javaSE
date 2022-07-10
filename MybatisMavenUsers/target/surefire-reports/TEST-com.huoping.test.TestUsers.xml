@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="1" name="com.huoping.test.TestUsers" time="0.006" errors="0" skipped="0">
+<testsuite tests="17" failures="1" name="com.huoping.test.TestUsers" time="0.331" errors="0" skipped="0">
   <properties>
     <property name="idea.version" value="2022.2"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -66,11 +66,81 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.huoping.test.TestUsers" name="testUsers" time="0.006">
-    <failure type="java.lang.NullPointerException">java.lang.NullPointerException
-	at com.huoping.test.TestUsers.testUsers(TestUsers.java:38)
+  <testcase classname="com.huoping.test.TestUsers" name="TestDeleteById" time="0.245"/>
+  <testcase classname="com.huoping.test.TestUsers" name="TestGetById" time="0.024"/>
+  <testcase classname="com.huoping.test.TestUsers" name="TestGetByUserMap" time="0.002"/>
+  <testcase classname="com.huoping.test.TestUsers" name="createUUID" time="0"/>
+  <testcase classname="com.huoping.test.TestUsers" name="getAllMap" time="0.003"/>
+  <testcase classname="com.huoping.test.TestUsers" name="getByName" time="0.005"/>
+  <testcase classname="com.huoping.test.TestUsers" name="getId" time="0.002"/>
+  <testcase classname="com.huoping.test.TestUsers" name="getUserDate" time="0.005"/>
+  <testcase classname="com.huoping.test.TestUsers" name="testDelete" time="0.003"/>
+  <testcase classname="com.huoping.test.TestUsers" name="testGetByMap" time="0.004"/>
+  <testcase classname="com.huoping.test.TestUsers" name="testInsert" time="0.01">
+    <failure message="
+### Error updating database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &apos;insert
+        into users(username, birthday, sex, address)
+        values
+     &apos; at line 2
+### The error may exist in com/huoping/mapper/UserMapper.xml
+### The error may involve com.huoping.mapper.UserMapper.insert-Inline
+### The error occurred while setting parameters
+### SQL: select last_insert_id()             insert         into users(username, birthday, sex, address)         values             (?, ?, ?, ?)
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &apos;insert
+        into users(username, birthday, sex, address)
+        values
+     &apos; at line 2" type="org.apache.ibatis.exceptions.PersistenceException">org.apache.ibatis.exceptions.PersistenceException: 
+### Error updating database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &apos;insert
+        into users(username, birthday, sex, address)
+        values
+     &apos; at line 2
+### The error may exist in com/huoping/mapper/UserMapper.xml
+### The error may involve com.huoping.mapper.UserMapper.insert-Inline
+### The error occurred while setting parameters
+### SQL: select last_insert_id()             insert         into users(username, birthday, sex, address)         values             (?, ?, ?, ?)
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &apos;insert
+        into users(username, birthday, sex, address)
+        values
+     &apos; at line 2
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:199)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.insert(DefaultSqlSession.java:184)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:62)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:152)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:85)
+	at com.sun.proxy.$Proxy8.insert(Unknown Source)
+	at com.huoping.test.TestUsers.testInsert(TestUsers.java:77)
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near &apos;insert
+        into users(username, birthday, sex, address)
+        values
+     &apos; at line 2
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:955)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:372)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy10.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.update(PreparedStatementHandler.java:47)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.update(RoutingStatementHandler.java:74)
+	at org.apache.ibatis.executor.SimpleExecutor.doUpdate(SimpleExecutor.java:50)
+	at org.apache.ibatis.executor.BaseExecutor.update(BaseExecutor.java:117)
+	at org.apache.ibatis.executor.CachingExecutor.update(CachingExecutor.java:76)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.update(DefaultSqlSession.java:197)
+	... 43 more
 </failure>
-    <system-out>Configuring TestNG with: org.apache.maven.surefire.testng.conf.TestNG652Configurator@646d64ab
+    <system-out>==&gt;  Preparing: select last_insert_id() insert into users(username, birthday, sex, address) values (?, ?, ?, ?)
+==&gt; Parameters: С��(String), 2020-06-01 00:00:00.0(Timestamp), 2(String), ����(String)
 </system-out>
   </testcase>
+  <testcase classname="com.huoping.test.TestUsers" name="testInsertList" time="0.007"/>
+  <testcase classname="com.huoping.test.TestUsers" name="testSelect" time="0.005"/>
+  <testcase classname="com.huoping.test.TestUsers" name="testUpdate" time="0.004"/>
+  <testcase classname="com.huoping.test.TestUsers" name="testUpdateSet" time="0.004"/>
+  <testcase classname="com.huoping.test.TestUsers" name="testUsers" time="0.004"/>
+  <testcase classname="com.huoping.test.TestUsers" name="testgetCondition" time="0.004"/>
 </testsuite>
