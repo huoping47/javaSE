@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="mybatisMaven" />
+        <module name="spring_sancengxml" />
+        <module name="spring_sanceng" />
         <module name="JAVAMaven" />
+        <module name="SpringDemo" />
+        <module name="mybatisMaven" />
         <module name="MybatisMavenUsers" />
       </profile>
     </annotationProcessing>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--创建各种对象-->
+    <!--    创建数据访问层的对象-->
+    <bean id="uMapper" class="com.huoping.dao.UserMapperImpl"></bean>
+    <!--    创建业务逻辑层的对象-->
+    <bean id="uService" class="com.huoping.service.impl.UsersServiceImpl">
+        <property name="userMapper" ref="uMapper"></property>
+    </bean>
+    <!--创建界面层对象-->
+    <bean id="uContorller" class="com.huoping.controller.UsersController">
+        <property name="usersService" ref="uService"></property>
+    </bean>
+    <bean id="users" class="com.huoping.pojo.Users">
+        <property name="uid" value="100"></property>
+        <property name="uage" value="22"></property>
+        <property name="uname" value="李四"></property>
+    </bean>
+</beans>
