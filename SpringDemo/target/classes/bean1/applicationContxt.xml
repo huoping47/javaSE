@@ -3,12 +3,12 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--    创建学校对象-->
-    <bean id="school" class="com.huoping.pojo1.School">
+    <bean id="school" class="com.huopingSM.pojo1.School">
         <property name="name" value="清华大学"></property>
         <property name="address" value="北京"></property>
     </bean>
     <!--    创建学生对象-->
-    <bean id="stu" class="com.huoping.pojo1.Students">
+    <bean id="stu" class="com.huopingSM.pojo1.Students">
         <property name="name" value="张三"></property>
         <property name="school" ref="school"></property>
     </bean>

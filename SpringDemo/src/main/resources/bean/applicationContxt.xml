@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--    创建学生对象,下面的代码等同于 Student stu = new Student();  id就是创建的对象的名字等同于stu   class就是创建对象的类型-->
-    <bean id="stu" class="com.huoping.pojo.Student">
+    <bean id="stu" class="com.huopingSM.pojo.Student">
         <property name="name" value="张三"></property>
         <property name="age" value="21"></property>
     </bean>

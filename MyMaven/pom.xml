@@ -5,7 +5,7 @@
     <artifactId>MyMaven.com.huoping</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>MyMaven.com.huoping Maven Webapp</name>
+    <name>MyMaven.com.huopingSM Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
@@ -23,6 +23,6 @@
         <!--        </dependency>-->
     </dependencies>
     <build>
-        <finalName>MyMaven.com.huoping</finalName>
+        <finalName>MyMaven.com.huopingSM</finalName>
     </build>
 </project>

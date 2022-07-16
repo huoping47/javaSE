@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--    读取属性文件  resources:默认从resources下面开始找,加载文件  url:使用绝对路径加载文件-->
+    <properties resource="jdbc.properties"></properties>
+    <!--    设置日志输出底层代码-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <!--    注册实体类的别名-->
+    <typeAliases>
+        <!--        注册单个实体类的别名 只要有使用下面这个type类型的地方,都可以使用user这个别名-->
+        <!--        <typeAlias type="org.example.UserTest" alias="user"></typeAlias>-->
+        <!--        批量注册实体类的别名-->
+        <package name="org.example"/>
+    </typeAliases>
+    <environments default="home">
+        <!--        可以有多个 default默认使用哪个-->
+        <!--        id的属性就是提供给environments标签的default使用-->
+        <environment id="home">
+            <!--            配置事务管理器
+                type:指定事务管理的方式;
+                    JDBC:事务的控制交给程序员处理
+                    MANAGED:由容器(spring)来管理事务
+            -->
+            <transactionManager type="JDBC"></transactionManager>
+
+            <!--            配置数据源
+                    type:指定不同的配置方式
+                        JNDI:java命名目录接口,在服务器端进行数据库连接池的管理
+                        POOLED:使用数据库连接池
+                        UNPOLLED:不适用数据库连接池
+                -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${user}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--    注册mapper文件-->
+    <mappers>
+        <mapper resource="UserMapper.xml"></mapper>
+    </mappers>
+</configuration>

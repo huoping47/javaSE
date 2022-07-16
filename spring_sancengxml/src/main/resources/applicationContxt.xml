@@ -4,16 +4,16 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--创建各种对象-->
     <!--    创建数据访问层的对象-->
-    <bean id="uMapper" class="com.huoping.dao.UserMapperImpl"></bean>
+    <bean id="uMapper" class="com.huopingSM.dao.UserMapperImpl"></bean>
     <!--    创建业务逻辑层的对象-->
-    <bean id="uService" class="com.huoping.service.impl.UsersServiceImpl">
+    <bean id="uService" class="com.huopingSM.service.impl.UsersServiceImpl">
         <property name="userMapper" ref="uMapper"></property>
     </bean>
     <!--创建界面层对象-->
-    <bean id="uContorller" class="com.huoping.controller.UsersController">
+    <bean id="uContorller" class="com.huopingSM.controller.UsersController">
         <property name="usersService" ref="uService"></property>
     </bean>
-    <bean id="users" class="com.huoping.pojo.Users">
+    <bean id="users" class="com.huopingSM.pojo.Users">
         <property name="uid" value="100"></property>
         <property name="uage" value="22"></property>
         <property name="uname" value="李四"></property>
