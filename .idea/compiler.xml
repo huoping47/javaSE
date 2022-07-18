@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="spring_sancengxml" />
+        <module name="SpringMVCAll" />
         <module name="SpringDemo" />
         <module name="SpringAsprctJ" />
         <module name="MybatisMavenUsers" />
         <module name="SpringSM" />
+        <module name="SpringMVCOne" />
         <module name="spring_sanceng" />
         <module name="JAVAMaven" />
         <module name="mybatisMaven" />

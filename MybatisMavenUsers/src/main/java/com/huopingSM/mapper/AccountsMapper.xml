@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.huopingSM.mapper.UserMapper">
+    <!--    动态sql:用来定义代码片段,可以将所有的列名,或复杂的条件定义为代码片段,-->
+    <sql id="selectAll">
+        username
+        , birthday, sex, address
+    </sql>
+    <select id="getAll" resultType="Users">
+        -- select username, birthday, sex, address
+        -- from users
+        select
+        <include refid="selectAll"></include>
+        from users
+    </select>
+
+    <!--        List<Users> getCondition(Users users); 根据不同的条件查询不同的数据-->
+    <select id="getCondition" resultType="Users" parameterType="Users">
+        select
+        <include refid="selectAll"></include>
+        from users
+        <where>
+            <if test="username != null and username != '' ">
+                and username like concat('%',#{username},'%')
+            </if>
+            <if test="birthday !=null">
+                and birthday = #{birthday}
+            </if>
+            <if test="sex !=null and sex != ''">
+                and sex = #{sex}
+            </if>
+            <if test="address !=null and address != ''">
+                and address like concat('%',#{address},'%')
+            </if>
+        </where>
+    </select>
+    <!--      private Integer id;
+    private String username;
+    private Date birthday;
+    private String sex;
+    private String address;-->
+    <update id="update" parameterType="Users">
+        update users
+        set username=#{username},
+            birthday=#{birthday},
+            sex=#{sex},
+            address=#{address}
+        where id = #{id}
+    </update>
+    <!--        int updateSet(Users users);-->
+    <update id="updateSet" parameterType="Users">
+        update users
+        <set>
+            <if test="username!=null and username!= ''">
+                username=#{username},
+            </if>
+            <if test="birthday!=null">
+                birthday = #{birthday},
+            </if>
+            <if test="sex!=null and sex!=''">
+                sex = #{sex}
+            </if>
+            <if test="address!=null and address!=''">
+                address = #{address}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--    返回自增主键-->
+    <insert id="insert" parameterType="Users">
+        <selectKey keyProperty="id" resultType="int" order="AFTER">
+            select last_insert_id()
+        </selectKey>
+        insert into users(username,birthday,sex,address)
+        values
+        (#{username}, #{birthday}, #{sex}, #{address})
+    </insert>
+
+    <!--    int insertUser(List<Users> list);-->
+    <insert id="insertUser">
+        insert into users(username, birthday, sex, address)
+        values
+        <foreach collection="list" item="lists" separator=",">
+            (#{lists.username},#{lists.birthday},#{lists.sex},#{lists.address})
+        </foreach>
+    </insert>
+
+    <select id="getId" parameterType="int" resultType="Users">
+        select id, username, birthday, sex, address
+        from users
+        where id = #{id}
+    </select>
+
+    <!--
+         模糊查询
+        List<Users> getName(String name);-->
+    <!--    <select id="getName" parameterType="string" resultType="users">-->
+    <!--        select id, username, birthday, sex, address-->
+    <!--        from users-->
+    <!--        where username like '%${name}%'-->
+    <!--    </select>-->
+    <!--    防止sql注入的模糊查询-->
+    <select id="getName" parameterType="string" resultType="Users">
+        select id, username, birthday, sex, address
+        from users
+        where username like concat('%', #{name}, '%')
+    </select>
+
+    <!--        List<Users> getByIds(Array arr[])-->
+    <select id="getByIds" resultType="Users">
+        select
+        <include refid="selectAll"></include>
+        from users where id in(
+        <foreach collection="array" item="id" separator=",">
+            #{id}
+        </foreach>
+        )
+    </select>
+
+    <!--
+    List<Users> getByVague(@Param("vague") String vague, @Param("vagueValue") String vagueValue);
+    如果参数超过一个,则可以省略parameterType这个属性
+    -->
+    <select id="getByVague" resultType="Users">
+        select *
+        from users
+        where ${vague} like concat('%', #{vagueValue}, '%')
+    </select>
+
+    <!--        List<Users> getUsersDate(Date date);-->
+    <select id="getUsersDate" resultType="Users">
+        select
+        <include refid="selectAll"></include>
+        from users where birthday between #{arg0} and #{arg1}
+    </select>
+
+    <!--    List<Users> getUserMap(Map map);
+                #{birthdayBegin} :相当于是map中的key
+    -->
+    <select id="getUserMap" resultType="Users">
+        select
+        <include refid="selectAll"></include>
+        from users where birthday between #{birthdayBegin} and #{birthdayEnd}
+    </select>
+
+    <!--    Map getUserByMap(Integer map);-->
+    <select id="getUserByMap" resultType="map" parameterType="int">
+        select username, address
+        from users
+        where id = #{id}
+    </select>
+
+    <!--    List<Map> getAllMap();-->
+    <select id="getAllMap" resultType="map">
+        select username, address
+        from users
+    </select>
+
+    <delete id="delete" parameterType="int">
+        delete
+        from users
+        where id = #{id}
+    </delete>
+
+    <!--        int deleteById(Integer del[]);-->
+    <delete id="deleteById">
+        delete
+        from users
+        where id in (
+        <foreach collection="array" separator="," item="id">
+            #{id}
+        </foreach>
+        )
+    </delete>
+</mapper>
