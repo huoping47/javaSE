@@ -3,8 +3,12 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/MyMaven" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVCAjax" />
     <file type="web" url="file://$PROJECT_DIR$/SpringMVCAll" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVCJump" />
     <file type="web" url="file://$PROJECT_DIR$/SpringMVCOne" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVCSSM" />
+    <file type="web" url="file://$PROJECT_DIR$/SpringMVCWEB-INF" />
     <file type="web" url="file://$PROJECT_DIR$/WebMavens" />
   </component>
   <component name="MavenProjectsManager">
@@ -22,6 +26,10 @@
         <option value="$PROJECT_DIR$/SpringSM/pom.xml" />
         <option value="$PROJECT_DIR$/SpringMVCAll/pom.xml" />
         <option value="$PROJECT_DIR$/SpringMVCOne/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVCAjax/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVCJump/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVCWEB-INF/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringMVCSSM/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
