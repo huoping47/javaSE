@@ -35,7 +35,7 @@
         <servlet-api.version>4.0.1</servlet-api.version>
         <!--        jsp的依赖-->
         <jsp-api.version>2.0</jsp-api.version>
-        <!--        jacakjson的依赖 ,默认转换为json格式-->
+        <!--      jackson的依赖 ,默认转换为json格式-->
         <jackson.version>2.13.1</jackson.version>
     </properties>
 
@@ -154,11 +154,26 @@
             <version>${jsp-api.version}</version>
         </dependency>
         <!-- Jackson Json处理工具包 -->
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+
         <!--        <dependency>-->
         <!--            <groupId>org.json</groupId>-->
         <!--            <artifactId>json</artifactId>-->
